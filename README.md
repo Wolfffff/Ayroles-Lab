@@ -37,7 +37,7 @@ Written in MATLAB to segregate capillaries and track fluid movement. It relies o
 ## Assorted Notes and Tidbits
 
 ## Related Images
-[Wolfffff](https://github.com/Wolfffff)
+[Images](https://github.com/Wolfffff/Ayroles-Lab/tree/master/Images)
 
 
 What things you need to install the software and how to install them

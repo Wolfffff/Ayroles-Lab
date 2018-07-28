@@ -6,13 +6,19 @@ This repo contains a few of the files associated with things I worked on over th
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+
+[Repo](https://github.com/Wolfffff/RATrak)
+
+
+[Site](https://wolfffff.github.io/RATrak/)
+
 ## Capillary Feeding Assay
 
 ### Design Files
 Designed in AutoCAD - Only final design files are in this repo under FeedingAssay folder but the following folder contains many more intermittent designs that could prove useful.
 
 
-[/FeedingAssay/DesignFiles/](https://github.com/Wolfffff/Ayroles-Lab/tree/master/FeedingAssay/DesignFiles)
+[Feeding Assay Design](https://github.com/Wolfffff/Ayroles-Lab/tree/master/FeedingAssay/DesignFiles)
 
 
 [Repo](https://github.com/Wolfffff/AC_DM)
@@ -20,10 +26,10 @@ Designed in AutoCAD - Only final design files are in this repo under FeedingAssa
 ### Associated Code
 Written in MATLAB to segregate capillaries and track fluid movement. It relies on the assumption that a specific hue only exists on capillaries. The code is pretty easy to read and modify. I'd recommend looking through it and modifying thresholds as necessary before implementation. Of course, adjusting hue is necessary for any implementation and currently conversion from pixel to true length is not in this script; however, that should be trivial.
 
-[/FeedingAssay/Code/](https://github.com/Wolfffff/Ayroles-Lab/tree/master/FeedingAssay/Code)
+[Feeding Assay Code](https://github.com/Wolfffff/Ayroles-Lab/tree/master/FeedingAssay/Code)
 
 ## Assorted Scripts
-[Wolfffff](https://github.com/Wolfffff)
+[Assorted Scripts](https://github.com/Wolfffff/Ayroles-Lab/tree/master/AssortedScripts)
 
 ## Assorted Design Files
 [Wolfffff](https://github.com/Wolfffff)

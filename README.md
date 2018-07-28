@@ -10,14 +10,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Design Files
 Designed in AutoCAD - Only final design files are in this repo under FeedingAssay folder but the following folder contains many more intermittent designs that could prove useful.
-[Wolfffff](https://github.com/Wolfffff)
-[Wolfffff](https://github.com/Wolfffff)
+[/FeedingAssay/DesignFiles/](https://github.com/Wolfffff/Ayroles-Lab/tree/master/FeedingAssay/DesignFiles)
+[Repo](https://github.com/Wolfffff/AC_DM)
 
 ### Associated Code
 Written in MATLAB to segregate capillaries and track fluid movement. It relies on the assumption that a specific hue only exists on capillaries. The code is pretty easy to read and modify. I'd recommend looking through it and modifying thresholds as necessary before implementation. Of course, adjusting hue is necessary for any implementation and currently conversion from pixel to true length is not in this script; however, that should be trivial.
 
-[Wolfffff](https://github.com/Wolfffff)
-[Wolfffff](https://github.com/Wolfffff)
+[/FeedingAssay/Code/](https://github.com/Wolfffff/Ayroles-Lab/tree/master/FeedingAssay/Code)
 
 ## Assorted Scripts
 [Wolfffff](https://github.com/Wolfffff)

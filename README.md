@@ -32,7 +32,7 @@ Written in MATLAB to segregate capillaries and track fluid movement. It relies o
 [Assorted Scripts](https://github.com/Wolfffff/Ayroles-Lab/tree/master/AssortedScripts)
 
 ## Assorted Design Files
-[Wolfffff](https://github.com/Wolfffff)
+[Assorted Design Files](https://github.com/Wolfffff/Ayroles-Lab/tree/master/AssortedDesignFiles)
 
 ## Assorted Notes and Tidbits
 

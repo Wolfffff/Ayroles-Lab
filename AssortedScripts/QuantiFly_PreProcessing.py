@@ -1,4 +1,5 @@
 #You must batch group your input images beforehand in a way that direct gridding segregates wells
+#Absolute slicing
 
 import glob
 import os
@@ -26,7 +27,8 @@ if __name__=='__main__':
     
     for infile in enumerate(filelist):
         
-        pieceHeight, pieceWidth = 450,450 #Likely will require changes
+        #Requires modification for each gridding use. E.g. 450,450 with 4x6 cuts 24 450x450 squares and your image size should fit this size.
+        pieceHeight, pieceWidth = 450,450
         cutColumns, cutRows = 4,6
         
         im = Image.open(infile)

@@ -23,7 +23,9 @@ import numpy as np
 import cv2
 import os
 
+#sub directory to search for images
 subdir = "/images"
+
 wd = os.getcwd()
 imageNames = []
 

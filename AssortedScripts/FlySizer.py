@@ -28,19 +28,23 @@ def calculateHoughCircles(fileName):
     # Grayscale
     imgray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # Median
+    #*** Blurring can require modification for the script to work ***
     blur = cv2.medianBlur(imgray, 23)
     # Thresh
     ret1, thresh1 = cv2.threshold(blur, 0, 255, cv2.THRESH_TOZERO + cv2.THRESH_OTSU)
+    
+    #*** (ret1 - 12) is the threshold as a factor of the one determined by cv2.THRESH_TOZERO + cv2.THRESH_OTSU above. Its modification can fix the script. ***
     ret2, thresh = cv2.threshold(blur, (ret1 - 12), 255, cv2.THRESH_TOZERO)
-
     edged = cv2.Canny(thresh, 0, 255)
 
     # Crop image
     cropped = np.zeros((height, width), np.uint8)
+    # NOTE: This cropping can be very problematic. It can cut too much or not enough depending on the image. Make sure to adjust this when implementing the algorithm.
     cropped[250:(height - 250), 450:(width - 450)] = -1
 
     masked = cv2.bitwise_and(edged, edged, mask=cropped)
 
+    #In the line below, the parameters are very relevant for the alg. Radius, sensitivity, minDist, etc. can affect the algorithm. Change them before looking further.
     circles = cv2.HoughCircles(masked, cv2.HOUGH_GRADIENT, 5, 320, minRadius=120, maxRadius=160)
 
     # detect circles in the image
@@ -95,15 +99,18 @@ def calculateHoughCircles(fileName):
                 crop = output[(y - r):(y + r), (x - r):(x + r)]
                 crop_gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
                 ret, threshCrop1 = cv2.threshold(crop_gray, 0, 255, cv2.THRESH_TOZERO + cv2.THRESH_OTSU)
+                
+                #*** (ret1 - 15) is the threshold as a factor of the one determined by cv2.THRESH_TOZERO + cv2.THRESH_OTSU above. Its modification can fix the script. ***
                 ret, threshCrop = cv2.threshold(crop_gray, (ret - 15), 255, cv2.THRESH_TOZERO)
-
                 ret2, tc2 = cv2.threshold(threshCrop, 1, 255, cv2.THRESH_BINARY_INV)
 
                 height, width = 2 * r, 2 * r
                 mask = np.zeros((height, width), np.uint8)
+                
+                #Cut circle with radius = 25 from section of image. This keeps edges of well from interferring with flies. 
                 cv2.circle(mask, (r, r), (r - 25), (255, 255, 255), thickness=-1)
                 masked_data = cv2.bitwise_and(tc2, tc2, mask=mask)
-
+                
                 image, contours, hierarchy = cv2.findContours(masked_data, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
                 contour_list = []
                 area = 0
@@ -111,7 +118,7 @@ def calculateHoughCircles(fileName):
                     approx = cv2.approxPolyDP(contour, 0.01 * cv2.arcLength(contour, True), True)
                     tempArea = cv2.contourArea(contour)
                     (x, y), radius = cv2.minEnclosingCircle(contour)
-
+                    #Ad hoc morphology check
                     if (len(approx) > 5) & (tempArea < 5000) & (tempArea > 1000) & (3.1415 * (radius ** 2) / 7 < tempArea):
                         contour_list.append(contour)
                         area = tempArea

@@ -6,7 +6,9 @@
 %Note: Post processing is neccessary, you need to remove any spontaneous
 %drops. An easy way to do this is to remove any movements of great than
 %some percent. E.g. don't count movements if they're greater than 5 of
-%previous size. This, of course, should be dependent on 
+%previous size. This, of course, should be dependent on setup.
+
+%Note that this only supports 3 x _ grids right now. The sorting function below is manual and a quick expansion would make it work with more grid sizes.
 
 function main()
     %Establish global vars for tracking in other functions
@@ -18,7 +20,7 @@ function main()
     frameNumber = 1;
     output = [,];
 
-    % Rects to pass to later calls so we dont have a "section swap" - More explanation necessary
+    % Rects to pass to later calls so we dont have a "section swap"
     v = VideoReader("Data/test2.mp4"); 
     %Start time here in this case we start at 5 minutes to avoid any
     %movement associated with starting the video.
@@ -27,17 +29,20 @@ function main()
         vidFrame = readFrame(v);
         im = vidFrame;
         if v.CurrentTime < 301
+        %Get's a set of rectangles to look for hue in later. We only search in original rectangles to avoid appearance of movement outside of original dye location
             masterRect = AnalyzeImageRects(im, 10, 3, 2);
         end
         im = imgaussfilt(im, 2);
         I = imcrop(im, masterRect);
         AnalyzeImage(I, 20, 3, 2, sortedRects);
-        if v.CurrentTime < v.Duration - 120 %1800 sec = 30min
+        %Move 2 minutes between each analysis
+        if v.CurrentTime < v.Duration - 120 %Time in S
             v.CurrentTime = v.CurrentTime + 120;
         else
             v.CurrentTime = v.Duration;
         end
     end
+    %Output
     csvwrite('csvlist.csv',output)
 end
 
@@ -50,10 +55,12 @@ function AnalyzeImage(I, distMin, rowCount, colCount, rectangles)
     BW = imfill(BW,'holes');
     %TODO: Use circularity to check as well, possibly implementing regionprops.
     for i = 1:length(rectangles)
+        %Crop to appropriate rectangle from masterRects
         tem = imcrop(BW, rectangles{i});
         tem = imfill(tem,'holes');
         imshow(tem);
         [temB,temL] = bwboundaries(tem,'noholes');
+        %Image cleaning
         stats = regionprops(temL,'Area','Centroid','BoundingBox');
         for k = 1:length(temB)
             boxLength = max(stats(k).BoundingBox(3:4));
@@ -103,14 +110,13 @@ function masterRect = AnalyzeImageRects(I, distMin, rowCount, colCount)
         delta_sq = diff(boundary).^2;
         perimeter = sum(sqrt(sum(delta_sq,2)));
         area = stats(k).Area;
-        % compute the roundness metric
+        % compute the roundness metric - ad hoc solution
         metric = 4*pi*area/perimeter^2;
 
         shouldPlot = false;
         if boxLength > distMin && metric < maxCircularity
             shouldPlot = true;
         end
-        
         if shouldPlot == true
             count = count + 1;
             rects{count} = stats(k).BoundingBox;
@@ -118,7 +124,8 @@ function masterRect = AnalyzeImageRects(I, distMin, rowCount, colCount)
     end
 
     sortedRects = {};
-    for i = 1:(length(rects)/rowCount) %Needs to be generalized - this sorts in sets of 3's y
+    %Needs to be generalized - this sorts in sets of 3's y so we support 3x2 only right now
+    for i = 1:(length(rects)/rowCount)
         indices = ((3*i) - 2):(3*i);
         temp = rects(indices);
         if temp{1}(2) > temp{2}(2)

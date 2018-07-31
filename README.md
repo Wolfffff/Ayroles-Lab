@@ -1,10 +1,10 @@
-# Ayroles Lab - Assorted Files
+# Asorted Files
 
-This repo contains a few of the files associated with things I worked on over the summer of 2018. There are more in other repos as well as locally, but I have put a few of the files here just as a bookkeeping measure. Note that very few files are in this repo and many of the more complete repos are linked in this README.
+This repo contains a few of the files associated with things I worked on over the summer of 2018. There are more in other repos as well as locally, but I have put a few of the files here just as a bookkeeping measure. Note that very few files are in this repo and many of the more complete repos are linked in this README. Furthermore, many of the files are annotated but not perfectly so some probing may be required to utilize them. They should provide a solid starting point for a variety of projects.
 
 ## RATrak
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system. Note that Simon knows this system extremely well and if anyone else would like to use it, he will be a great resource.
 
 
 [Repo](https://github.com/Wolfffff/RATrak)
@@ -30,19 +30,29 @@ Written in MATLAB to segregate capillaries and track fluid movement. It relies o
 
 ## Assorted Scripts
 [Assorted Scripts](https://github.com/Wolfffff/Ayroles-Lab/tree/master/AssortedScripts)
+### Index
+* BulkPreProcessingScript
+  *
 
 ## Assorted Design Files
 [Assorted Design Files](https://github.com/Wolfffff/Ayroles-Lab/tree/master/AssortedDesignFiles)
-* Work related to various design projects along with some of the prototypes for the assay.
+### Index
+* Various laser cutting files
+* Intermediate designs that are not necessarily in [AutoCAD](https://github.com/Wolfffff/AC_DM) repo
 
 ## Everything Else
 [Other](https://github.com/Wolfffff/Ayroles-Lab/tree/master/Other)
 ### Index
-* 
+* STLs
+  * STLs from first industrial print on 30/07/2018
+* Sample speed file and associated annotation file
+* Bibliography exported from Zotero
 
 
 ## Related Images
 [Images](https://github.com/Wolfffff/Ayroles-Lab/tree/master/Images)
+### Index
+* A few images of related things. Specifically of designs, tracking, intermediate steps. This will be updated later as I take more images.
 
 
 

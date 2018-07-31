@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 [Repo](https://github.com/Wolfffff/RATrak)
 
 
-[Site](https://wolfffff.github.io/RATrak/)
+[Website](https://wolfffff.github.io/RATrak/)
 
 ## Capillary Feeding Assay
 
@@ -33,11 +33,17 @@ Written in MATLAB to segregate capillaries and track fluid movement. It relies o
 
 ## Assorted Design Files
 [Assorted Design Files](https://github.com/Wolfffff/Ayroles-Lab/tree/master/AssortedDesignFiles)
+* Work related to various design projects along with some of the prototypes for the assay.
 
-## Assorted Notes and Tidbits
+## Everything Else
+[Other](https://github.com/Wolfffff/Ayroles-Lab/tree/master/Other)
+### Index
+* 
+
 
 ## Related Images
 [Images](https://github.com/Wolfffff/Ayroles-Lab/tree/master/Images)
+
 
 
 ## Authors

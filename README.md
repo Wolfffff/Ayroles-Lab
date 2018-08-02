@@ -58,6 +58,6 @@ Written in MATLAB to segregate capillaries and track fluid movement. It relies o
 ## Related Images
 [Images](https://github.com/Wolfffff/Ayroles-Lab/tree/master/Images)
 ##### Index
-* A few images of related things. Specifically of designs, tracking, intermediate steps. This will be updated later as I take more images.
+* A few images of related things. Specifically of designs, tracking, and intermediate steps in the development process. This will be updated later as I take more images.
 
 
